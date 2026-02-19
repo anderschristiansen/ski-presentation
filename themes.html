@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema-alternativer | DIMS SKI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+/* ============================================
+   Page Shell
+   ============================================ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --page-bg: #090909;
+  --page-text: #d0d0d0;
+  --page-muted: #555;
+  --page-border: rgba(255,255,255,0.06);
+  --cherry: #C1476E;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+body {
+  background: var(--page-bg);
+  color: var(--page-text);
+  font-family: var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+
+/* ============================================
+   Header
+   ============================================ */
+
+.page-header {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 48px 32px 0;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--page-muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  transition: color 0.25s;
+  margin-bottom: 40px;
+}
+.back-link:hover { color: var(--cherry); }
+
+.page-title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #f0f0f0;
+  margin-bottom: 12px;
+}
+
+.page-desc {
+  font-size: 0.9rem;
+  color: var(--page-muted);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+
+.page-desc::before {
+  content: '// ';
+  opacity: 0.4;
+}
+
+.title-line {
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--cherry), transparent);
+  margin-bottom: 56px;
+}
+
+
+/* ============================================
+   Theme Grid
+   ============================================ */
+
+.themes-grid {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 32px 80px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+
+/* ============================================
+   Theme Card — Shared
+   ============================================ */
+
+.theme-card {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--page-border);
+  background: #111;
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease;
+  will-change: opacity, transform;
+}
+
+.theme-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.theme-card:hover {
+  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+}
+
+/* ── Preview ── */
+.card-preview {
+  position: relative;
+  height: 320px;
+  background: var(--t-bg);
+  overflow: hidden;
+  cursor: default;
+}
+
+.preview-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.preview-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  gap: 4px;
+}
+
+.theme-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--t-ac);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 4px;
+}
+
+.mock-title {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--t-tx);
+  line-height: 1;
+}
+
+.mock-line {
+  width: 42px;
+  height: 2px;
+  background: var(--t-ac);
+  margin: 14px 0;
+  border-radius: 1px;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-card:hover .mock-line {
+  width: 72px;
+}
+
+.mock-elements {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.mock-btn {
+  background: var(--t-ac);
+  color: var(--t-bg);
+  padding: 5px 14px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.mock-code {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--t-sc, var(--t-ac));
+  background: rgba(0,0,0,0.25);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ── Meta ── */
+.card-meta {
+  padding: 18px 22px;
+  background: #111;
+  border-top: 1px solid var(--page-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.meta-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: #e8e8e8;
+  margin-bottom: 3px;
+}
+
+.meta-desc {
+  font-size: 0.72rem;
+  color: var(--page-muted);
+  line-height: 1.4;
+}
+
+.meta-palette {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.meta-palette span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--c);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.2s ease;
+}
+
+.meta-palette span:hover {
+  transform: scale(1.25);
+}
+
+
+/* ============================================
+   Theme 01 — Frost
+   ============================================ */
+
+[data-theme="frost"] {
+  --t-bg: #0b1a2e;
+  --t-tx: #d4eaf7;
+  --t-ac: #7ec8e3;
+  --t-sc: #4a8eb5;
+}
+
+[data-theme="frost"] .preview-bg {
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(126, 200, 227, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(74, 142, 181, 0.05) 0%, transparent 50%);
+}
+
+[data-theme="frost"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(126, 200, 227, 0.04) 50%, transparent 70%);
+  background-size: 250% 100%;
+  animation: frost-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes frost-shimmer {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -50% 0; }
+}
+
+
+/* ============================================
+   Theme 02 — Ember
+   ============================================ */
+
+[data-theme="ember"] {
+  --t-bg: #150808;
+  --t-tx: #f0d4c8;
+  --t-ac: #e8834a;
+  --t-sc: #C1476E;
+}
+
+[data-theme="ember"] .preview-bg {
+  background: radial-gradient(ellipse at 50% 110%, rgba(232, 131, 74, 0.12) 0%, rgba(193, 71, 110, 0.04) 40%, transparent 65%);
+  animation: ember-pulse 3s ease-in-out infinite;
+}
+
+[data-theme="ember"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(232, 131, 74, 0.06), transparent);
+}
+
+@keyframes ember-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+
+/* ============================================
+   Theme 03 — Terminal
+   ============================================ */
+
+[data-theme="terminal"] {
+  --t-bg: #030503;
+  --t-tx: #33cc55;
+  --t-ac: #00ff41;
+  --t-sc: #0a6b1e;
+}
+
+[data-theme="terminal"] .mock-title {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  text-shadow: 0 0 12px rgba(0, 255, 65, 0.3);
+}
+
+[data-theme="terminal"] .mock-btn {
+  background: transparent;
+  color: var(--t-ac);
+  border: 1px solid var(--t-ac);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.15);
+}
+
+[data-theme="terminal"] .preview-bg {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 255, 65, 0.015) 3px,
+    rgba(0, 255, 65, 0.015) 4px
+  );
+  animation: scanline-scroll 10s linear infinite;
+}
+
+[data-theme="terminal"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+@keyframes scanline-scroll {
+  from { background-position: 0 0; }
+  to { background-position: 0 400px; }
+}
+
+
+/* ============================================
+   Theme 04 — Nordic
+   ============================================ */
+
+[data-theme="nordic"] {
+  --t-bg: #f2efe8;
+  --t-tx: #2d3b33;
+  --t-ac: #63756B;
+  --t-sc: #93AD9F;
+}
+
+[data-theme="nordic"] .mock-code {
+  background: rgba(0,0,0,0.05);
+  color: var(--t-ac);
+  border-color: rgba(0,0,0,0.08);
+}
+
+[data-theme="nordic"] .preview-bg {
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 59px,
+      rgba(99, 117, 107, 0.06) 59px,
+      rgba(99, 117, 107, 0.06) 60px
+    );
+}
+
+[data-theme="nordic"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  width: 120%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 117, 107, 0.15), transparent);
+  animation: nordic-line 6s ease-in-out infinite;
+}
+
+@keyframes nordic-line {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-30px); opacity: 1; }
+}
+
+
+/* ============================================
+   Theme 05 — Neon Noir
+   ============================================ */
+
+[data-theme="neon"] {
+  --t-bg: #08081a;
+  --t-tx: #e0e0ff;
+  --t-ac: #8b5cf6;
+  --t-sc: #d946ef;
+}
+
+[data-theme="neon"] .card-preview {
+  box-shadow: inset 0 0 40px rgba(139, 92, 246, 0.06);
+}
+
+[data-theme="neon"] .mock-title {
+  text-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+}
+
+[data-theme="neon"] .mock-btn {
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.3);
+}
+
+[data-theme="neon"] .preview-bg {
+  background:
+    linear-gradient(135deg, rgba(139, 92, 246, 0.04) 0%, transparent 50%),
+    linear-gradient(315deg, rgba(217, 70, 239, 0.03) 0%, transparent 50%);
+}
+
+[data-theme="neon"] .preview-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 19px,
+      rgba(139, 92, 246, 0.02) 19px,
+      rgba(139, 92, 246, 0.02) 20px
+    );
+}
+
+[data-theme="neon"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 16px 16px 0 0;
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  animation: neon-border-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes neon-border-pulse {
+  0%, 100% { border-color: rgba(139, 92, 246, 0.1); box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.03); }
+  50% { border-color: rgba(217, 70, 239, 0.25); box-shadow: inset 0 0 40px rgba(217, 70, 239, 0.06); }
+}
+
+
+/* ============================================
+   Theme 06 — Sandstone
+   ============================================ */
+
+[data-theme="sandstone"] {
+  --t-bg: #15120d;
+  --t-tx: #f0e6d3;
+  --t-ac: #F6DB9F;
+  --t-sc: #c9845a;
+}
+
+[data-theme="sandstone"] .preview-bg {
+  background:
+    radial-gradient(circle at 25% 35%, rgba(246, 219, 159, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 75% 65%, rgba(201, 132, 90, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(246, 219, 159, 0.05) 0%, transparent 30%);
+}
+
+[data-theme="sandstone"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(246, 219, 159, 0.12);
+  top: 20%;
+  left: 15%;
+  box-shadow:
+    120px 80px 0 rgba(201, 132, 90, 0.08),
+    250px 40px 0 2px rgba(246, 219, 159, 0.06),
+    80px 200px 0 1px rgba(201, 132, 90, 0.07),
+    320px 180px 0 rgba(246, 219, 159, 0.09),
+    200px 240px 0 2px rgba(201, 132, 90, 0.05);
+  animation: sand-drift 12s ease-in-out infinite;
+}
+
+@keyframes sand-drift {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(8px, -4px); }
+  66% { transform: translate(-4px, 6px); }
+}
+
+
+/* ============================================
+   Theme 07 — Ink
+   ============================================ */
+
+[data-theme="ink"] {
+  --t-bg: #fafaf8;
+  --t-tx: #111111;
+  --t-ac: #C1476E;
+  --t-sc: #555;
+}
+
+[data-theme="ink"] .mock-title {
+  font-family: var(--font-display);
+  font-style: italic;
+}
+
+[data-theme="ink"] .mock-code {
+  background: rgba(0,0,0,0.04);
+  color: #333;
+  border-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="ink"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(193, 71, 110, 0.04);
+  bottom: 24px;
+  right: 28px;
+  animation: ink-bloom 5s ease-in-out infinite;
+}
+
+@keyframes ink-bloom {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.8); opacity: 0.8; }
+}
+
+
+/* ============================================
+   Theme 08 — Aurora
+   ============================================ */
+
+[data-theme="aurora"] {
+  --t-bg: #060d14;
+  --t-tx: #cce5f0;
+  --t-ac: #06b6d4;
+  --t-sc: #10b981;
+}
+
+[data-theme="aurora"] .mock-title {
+  background: linear-gradient(135deg, #06b6d4, #10b981, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="aurora"] .mock-line {
+  background: linear-gradient(90deg, #06b6d4, #10b981);
+}
+
+[data-theme="aurora"] .preview-bg {
+  background: linear-gradient(135deg,
+    rgba(6, 182, 212, 0.08),
+    rgba(16, 185, 129, 0.06),
+    rgba(139, 92, 246, 0.05),
+    rgba(6, 182, 212, 0.04)
+  );
+  background-size: 300% 300%;
+  animation: aurora-flow 8s ease-in-out infinite;
+}
+
+[data-theme="aurora"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg,
+    rgba(6, 182, 212, 0.04),
+    rgba(16, 185, 129, 0.02),
+    transparent
+  );
+  filter: blur(20px);
+  animation: aurora-wave 6s ease-in-out infinite;
+}
+
+@keyframes aurora-flow {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 50% 100%; }
+  75% { background-position: 0% 0%; }
+}
+
+@keyframes aurora-wave {
+  0%, 100% { transform: translateX(-10%) scaleY(1); opacity: 0.6; }
+  50% { transform: translateX(10%) scaleY(1.3); opacity: 1; }
+}
+
+
+/* ============================================
+   Theme 09 — Blueprint
+   ============================================ */
+
+[data-theme="blueprint"] {
+  --t-bg: #0a1929;
+  --t-tx: #cdd9e5;
+  --t-ac: #2196f3;
+  --t-sc: #64b5f6;
+}
+
+[data-theme="blueprint"] .mock-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+}
+
+[data-theme="blueprint"] .mock-btn {
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.62rem;
+}
+
+[data-theme="blueprint"] .preview-bg {
+  background-image:
+    linear-gradient(rgba(33, 150, 243, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 150, 243, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+[data-theme="blueprint"] .preview-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(33, 150, 243, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 150, 243, 0.03) 1px, transparent 1px);
+  background-size: 96px 96px;
+}
+
+[data-theme="blueprint"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 140px;
+  height: 140px;
+  border: 1px solid rgba(33, 150, 243, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: bp-circle 5s ease-in-out infinite;
+}
+
+@keyframes bp-circle {
+  0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.4; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+
+/* ============================================
+   Theme 10 — Botanical
+   ============================================ */
+
+[data-theme="botanical"] {
+  --t-bg: #080f0b;
+  --t-tx: #c8dac4;
+  --t-ac: #2d7a4f;
+  --t-sc: #d4a957;
+}
+
+[data-theme="botanical"] .mock-line {
+  background: linear-gradient(90deg, #2d7a4f, #d4a957);
+}
+
+[data-theme="botanical"] .preview-bg {
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(45, 122, 79, 0.06) 0%, transparent 40%),
+    radial-gradient(ellipse at 80% 20%, rgba(212, 169, 87, 0.04) 0%, transparent 40%);
+}
+
+[data-theme="botanical"] .preview-bg::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(45, 122, 79, 0.1);
+  border-radius: 50%;
+  animation: botanical-grow 6s ease-in-out infinite;
+  box-shadow:
+    -60px -40px 0 -1px transparent,
+    -60px -40px 0 0 rgba(45, 122, 79, 0.06);
+}
+
+[data-theme="botanical"] .preview-bg::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(212, 169, 87, 0.08);
+  border-radius: 50%;
+  animation: botanical-grow 6s ease-in-out 2s infinite;
+}
+
+@keyframes botanical-grow {
+  0%, 100% { transform: scale(0.9); opacity: 0.4; }
+  50% { transform: scale(1.3); opacity: 0.9; }
+}
+
+
+/* ============================================
+   Modal
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-card {
+  width: 90vw;
+  max-width: 720px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  transform: scale(0.92) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+
+.modal-overlay.active .modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.modal-preview {
+  height: 420px;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-preview .preview-bg,
+.modal-preview .preview-content {
+  position: absolute;
+  inset: 0;
+}
+
+.modal-preview .preview-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  gap: 6px;
+  z-index: 2;
+}
+
+.modal-preview .mock-title { font-size: 4rem; }
+.modal-preview .mock-line { width: 56px; margin: 18px 0; }
+.modal-preview .theme-tag { font-size: 0.72rem; }
+
+.modal-meta {
+  padding: 24px 28px;
+  background: #111;
+  border-top: 1px solid var(--page-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-meta .meta-name { font-size: 1.6rem; }
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.5);
+  color: #aaa;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: background 0.2s, color 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.modal-close:hover {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.page-footer {
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0 32px 48px;
+  text-align: center;
+}
+
+.footer-line {
+  width: 100%;
+  height: 1px;
+  background: var(--page-border);
+  margin-bottom: 24px;
+}
+
+.footer-text {
+  font-size: 0.7rem;
+  color: var(--page-muted);
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 820px) {
+  .themes-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .page-title { font-size: 2.8rem; }
+  .card-preview { height: 280px; }
+  .mock-title { font-size: 2.4rem; }
+  .modal-preview { height: 340px; }
+  .modal-preview .mock-title { font-size: 3rem; }
+}
+  </style>
+</head>
+<body>
+
+<header class="page-header">
+  <a href="index.html" class="back-link">&larr; Tilbage til pr&aelig;sentation</a>
+  <h1 class="page-title">Tema-alternativer</h1>
+  <p class="page-desc">10 designretninger til DIMS-pr&aelig;sentationen</p>
+  <div class="title-line"></div>
+</header>
+
+<main class="themes-grid">
+
+  <article class="theme-card" data-theme="frost">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">01 &mdash; Frost</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Frost</div><p class="meta-desc">Crystalline depth with frosted glass and icy highlights</p></div>
+      <div class="meta-palette">
+        <span style="--c:#0b1a2e"></span>
+        <span style="--c:#112240"></span>
+        <span style="--c:#7ec8e3"></span>
+        <span style="--c:#d4eaf7"></span>
+        <span style="--c:#4a8eb5"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="ember">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">02 &mdash; Ember</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Ember</div><p class="meta-desc">Smoldering warmth with cherry and orange accents</p></div>
+      <div class="meta-palette">
+        <span style="--c:#150808"></span>
+        <span style="--c:#201010"></span>
+        <span style="--c:#e8834a"></span>
+        <span style="--c:#C1476E"></span>
+        <span style="--c:#f0d4c8"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="terminal">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">03 &mdash; Terminal</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">&gt; run</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Terminal</div><p class="meta-desc">Phosphor green on black with CRT scanlines</p></div>
+      <div class="meta-palette">
+        <span style="--c:#030503"></span>
+        <span style="--c:#0a120a"></span>
+        <span style="--c:#00ff41"></span>
+        <span style="--c:#33cc55"></span>
+        <span style="--c:#0a6b1e"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="nordic">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">04 &mdash; Nordic</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Nordic</div><p class="meta-desc">Warm whites with Scandinavian minimalism and sage accents</p></div>
+      <div class="meta-palette">
+        <span style="--c:#f2efe8"></span>
+        <span style="--c:#e8e4db"></span>
+        <span style="--c:#63756B"></span>
+        <span style="--c:#93AD9F"></span>
+        <span style="--c:#2d3b33"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="neon">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">05 &mdash; Neon Noir</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Neon Noir</div><p class="meta-desc">Electric violet and magenta on deep dark with neon glow</p></div>
+      <div class="meta-palette">
+        <span style="--c:#08081a"></span>
+        <span style="--c:#10102a"></span>
+        <span style="--c:#8b5cf6"></span>
+        <span style="--c:#d946ef"></span>
+        <span style="--c:#e0e0ff"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="sandstone">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">06 &mdash; Sandstone</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Sandstone</div><p class="meta-desc">Warm earth tones with sand, clay, and ivory textures</p></div>
+      <div class="meta-palette">
+        <span style="--c:#15120d"></span>
+        <span style="--c:#1e1a14"></span>
+        <span style="--c:#F6DB9F"></span>
+        <span style="--c:#c9845a"></span>
+        <span style="--c:#f0e6d3"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="ink">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">07 &mdash; Ink</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Ink</div><p class="meta-desc">Editorial print aesthetic &mdash; off-white with cherry ink blots</p></div>
+      <div class="meta-palette">
+        <span style="--c:#fafaf8"></span>
+        <span style="--c:#f0f0ec"></span>
+        <span style="--c:#111111"></span>
+        <span style="--c:#C1476E"></span>
+        <span style="--c:#555"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="aurora">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">08 &mdash; Aurora</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Aurora</div><p class="meta-desc">Northern lights &mdash; shifting teal, emerald, and violet gradients</p></div>
+      <div class="meta-palette">
+        <span style="--c:#060d14"></span>
+        <span style="--c:#0c1a26"></span>
+        <span style="--c:#06b6d4"></span>
+        <span style="--c:#10b981"></span>
+        <span style="--c:#8b5cf6"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="blueprint">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">09 &mdash; Blueprint</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Blueprint</div><p class="meta-desc">Technical drawing aesthetic with precision grids and blue ink</p></div>
+      <div class="meta-palette">
+        <span style="--c:#0a1929"></span>
+        <span style="--c:#0f2744"></span>
+        <span style="--c:#2196f3"></span>
+        <span style="--c:#64b5f6"></span>
+        <span style="--c:#cdd9e5"></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="theme-card" data-theme="botanical">
+    <div class="card-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag">10 &mdash; Botanical</span>
+        <h3 class="mock-title">DIMS</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">npm run dev</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-meta">
+      <div><div class="meta-name">Botanical</div><p class="meta-desc">Deep forest greens with organic shapes and golden accents</p></div>
+      <div class="meta-palette">
+        <span style="--c:#080f0b"></span>
+        <span style="--c:#0f1a13"></span>
+        <span style="--c:#2d7a4f"></span>
+        <span style="--c:#93AD9F"></span>
+        <span style="--c:#d4a957"></span>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<!-- Modal overlay -->
+<div class="modal-overlay" id="modal">
+  <div class="modal-card" id="modal-card">
+    <div class="modal-close" id="modal-close">&times;</div>
+    <div class="modal-preview" id="modal-preview">
+      <div class="preview-bg"></div>
+      <div class="preview-content">
+        <span class="theme-tag" id="modal-tag"></span>
+        <h3 class="mock-title">DIMS Base Components</h3>
+        <div class="mock-line"></div>
+        <div class="mock-elements">
+          <span class="mock-btn">Komponent</span>
+          <span class="mock-code">$ npm run storybook</span>
+        </div>
+      </div>
+    </div>
+    <div class="modal-meta">
+      <div><div class="meta-name" id="modal-name"></div><p class="meta-desc" id="modal-desc"></p></div>
+      <div class="meta-palette" id="modal-palette"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer">
+  <div class="footer-line"></div>
+  <p class="footer-text">DIMS &middot; SKI &middot; 2026</p>
+</footer>
+
+<script>
+/* ── Scroll reveal ── */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const card = entry.target;
+      const delay = Array.from(card.parentElement.children).indexOf(card) % 2 === 0 ? 0 : 80;
+      setTimeout(() => card.classList.add('visible'), delay);
+      observer.unobserve(card);
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.theme-card').forEach(card => observer.observe(card));
+
+/* ── Modal ── */
+const modal = document.getElementById('modal');
+const modalCard = document.getElementById('modal-card');
+const modalPreview = document.getElementById('modal-preview');
+const modalTag = document.getElementById('modal-tag');
+const modalName = document.getElementById('modal-name');
+const modalDesc = document.getElementById('modal-desc');
+const modalPalette = document.getElementById('modal-palette');
+
+document.querySelectorAll('.theme-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const theme = card.dataset.theme;
+    const name = card.querySelector('.meta-name').textContent;
+    const desc = card.querySelector('.meta-desc').textContent;
+    const tag = card.querySelector('.theme-tag').textContent;
+    const palette = card.querySelector('.meta-palette').innerHTML;
+
+    // Copy theme styles
+    modalCard.setAttribute('data-theme', theme);
+    modalPreview.style.background = getComputedStyle(card.querySelector('.card-preview')).background;
+
+    // Copy the preview-bg classes/styles
+    const sourceBg = card.querySelector('.preview-bg');
+    const targetBg = modalPreview.querySelector('.preview-bg');
+    targetBg.className = sourceBg.className;
+
+    modalTag.textContent = tag;
+    modalName.textContent = name;
+    modalDesc.textContent = desc;
+    modalPalette.innerHTML = palette;
+
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+document.getElementById('modal-close').addEventListener('click', (e) => {
+  e.stopPropagation();
+  closeModal();
+});
+
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+</script>
+
+</body>
+</html>
