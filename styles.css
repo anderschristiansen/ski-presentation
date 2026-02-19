@@ -1,6 +1,6 @@
 /* ============================================
-   SKI Presentation — Dark Developer Edition
-   Instrument Serif × JetBrains Mono
+   SKI Presentation — Dark Sage Edition
+   Oswald × JetBrains Mono
    ============================================ */
 
 :root {
@@ -18,26 +18,27 @@
   --sand: #F6DB9F;
   --deep-purple: #34344A;
   --pastel-pink: #FFF3F7;
+  --sage: #829189;
 
-  /* ── Dark Theme Layers ── */
-  --bg-base: #0e0e19;
-  --bg-surface: #151525;
-  --bg-elevated: #1c1c30;
-  --bg-card: #22223a;
-  --bg-hover: #2a2a46;
+  /* ── Dark Sage Theme Layers ── */
+  --bg-base: #151e1a;
+  --bg-surface: #1c2622;
+  --bg-elevated: #232e2a;
+  --bg-card: #2a3530;
+  --bg-hover: #313c37;
   --bg-tertiary: var(--bg-card);
 
   /* ── Borders ── */
-  --border-subtle: rgba(255, 255, 255, 0.04);
-  --border-default: rgba(255, 255, 255, 0.07);
-  --border-strong: rgba(255, 255, 255, 0.12);
+  --border-subtle: rgba(130, 145, 137, 0.06);
+  --border-default: rgba(130, 145, 137, 0.10);
+  --border-strong: rgba(130, 145, 137, 0.18);
   --border-color: var(--border-default);
 
   /* ── Text ── */
-  --text-primary: var(--ski-grey);
+  --text-primary: #d4ddd8;
   --text-secondary: var(--light-green);
-  --text-muted: var(--light-purple);
-  --text-dim: var(--dark-purple);
+  --text-muted: var(--sage);
+  --text-dim: #5a6b63;
 
   /* ── Accents ── */
   --accent-cherry: var(--cherry);
@@ -49,11 +50,11 @@
 
   /* ── Glows ── */
   --glow-cherry: rgba(193, 71, 110, 0.15);
-  --glow-green: rgba(147, 173, 159, 0.1);
+  --glow-green: rgba(130, 145, 137, 0.12);
   --glow-sand: rgba(246, 219, 159, 0.08);
 
   /* ── Fonts ── */
-  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-display: 'Oswald', 'Arial Narrow', sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
   /* ── Motion ── */
@@ -147,9 +148,9 @@ html, body {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(99, 117, 107, 0.04) 0%, transparent 55%),
-    linear-gradient(rgba(147, 173, 159, 0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(147, 173, 159, 0.022) 1px, transparent 1px);
+    radial-gradient(ellipse at 50% 0%, rgba(130, 145, 137, 0.05) 0%, transparent 50%),
+    linear-gradient(rgba(130, 145, 137, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(130, 145, 137, 0.025) 1px, transparent 1px);
   background-size: 100% 100%, 52px 52px, 52px 52px;
   pointer-events: none;
   z-index: 0;
@@ -248,11 +249,12 @@ html, body {
 
 .slide-title {
   font-family: var(--font-display);
-  font-size: 3.2rem;
-  font-weight: 400;
+  font-size: 3rem;
+  font-weight: 600;
   margin-bottom: 10px;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
+  letter-spacing: 0.03em;
+  line-height: 1.1;
+  text-transform: uppercase;
   color: var(--text-primary);
 }
 
@@ -385,9 +387,9 @@ html, body {
   height: 500px;
   background: radial-gradient(
     ellipse,
-    rgba(193, 71, 110, 0.06) 0%,
-    rgba(99, 117, 107, 0.03) 35%,
-    transparent 65%
+    rgba(130, 145, 137, 0.08) 0%,
+    rgba(99, 117, 107, 0.04) 35%,
+    transparent 60%
   );
   top: 50%;
   left: 50%;
@@ -425,11 +427,11 @@ html, body {
 }
 
 .intro-slide .slide-title {
-  font-size: 4rem;
-  background: linear-gradient(135deg, var(--light-green) 0%, var(--ski-grey) 40%, var(--sand) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
   opacity: 0;
   animation: titleReveal 1s var(--ease-out) 0.6s forwards;
 }
@@ -514,7 +516,7 @@ html, body {
   align-items: center;
   gap: 22px;
   padding: 28px 40px;
-  background: rgba(34, 34, 58, 0.5);
+  background: rgba(42, 53, 48, 0.55);
   border: 1px solid var(--border-default);
   border-radius: 14px;
   min-width: 340px;
@@ -619,7 +621,7 @@ html, body {
   border-style: dashed;
   border-color: var(--border-subtle);
   min-width: 200px;
-  background: rgba(34, 34, 58, 0.25);
+  background: rgba(42, 53, 48, 0.3);
 }
 
 
@@ -637,7 +639,7 @@ html, body {
 }
 
 .gallery-item {
-  background: rgba(34, 34, 58, 0.5);
+  background: rgba(42, 53, 48, 0.55);
   border: 1px solid var(--border-default);
   border-radius: 12px;
   overflow: hidden;
@@ -723,7 +725,7 @@ html, body {
 .icon-count-number {
   font-family: var(--font-display);
   font-size: 6rem;
-  font-weight: 400;
+  font-weight: 700;
   color: var(--accent-cherry);
   line-height: 1;
   text-shadow: 0 0 60px var(--glow-cherry);
@@ -743,7 +745,7 @@ html, body {
 .showcase-placeholder {
   width: 100%;
   min-height: 380px;
-  background: rgba(34, 34, 58, 0.3);
+  background: rgba(42, 53, 48, 0.35);
   border: 1px dashed var(--border-default);
   border-radius: 16px;
   display: flex;
@@ -838,7 +840,7 @@ html, body {
 }
 
 .demo-terminal {
-  background: rgba(34, 34, 58, 0.6);
+  background: rgba(42, 53, 48, 0.6);
   border: 1px solid var(--border-default);
   border-radius: 10px;
   padding: 18px 32px;
@@ -858,12 +860,10 @@ html, body {
 .demo-title {
   font-family: var(--font-display);
   font-size: 7rem;
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  background: linear-gradient(135deg, var(--light-green), var(--ski-grey), var(--sand));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
   margin-bottom: 36px;
   animation: demo-glow 4s ease-in-out infinite;
 }
@@ -915,7 +915,7 @@ html, body {
 }
 
 .tool-card {
-  background: rgba(34, 34, 58, 0.5);
+  background: rgba(42, 53, 48, 0.55);
   border: 1px solid var(--border-default);
   border-radius: 14px;
   padding: 24px 28px;
@@ -960,7 +960,7 @@ html, body {
 }
 
 .code-block {
-  background: rgba(14, 14, 25, 0.7);
+  background: rgba(21, 30, 26, 0.75);
   border: 1px solid rgba(147, 173, 159, 0.08);
   border-radius: 8px;
   padding: 14px 18px;
@@ -1030,7 +1030,7 @@ html, body {
 }
 
 .terminal-block {
-  background: rgba(34, 34, 58, 0.5);
+  background: rgba(42, 53, 48, 0.55);
   border: 1px solid var(--border-default);
   border-radius: 12px;
   overflow: hidden;
@@ -1040,7 +1040,7 @@ html, body {
 }
 
 .terminal-header {
-  background: rgba(28, 28, 48, 0.8);
+  background: rgba(35, 46, 42, 0.8);
   padding: 8px 14px;
   display: flex;
   align-items: center;
@@ -1077,7 +1077,7 @@ html, body {
 .terminal-body .file { color: var(--text-secondary); }
 
 .skill-card {
-  background: rgba(34, 34, 58, 0.5);
+  background: rgba(42, 53, 48, 0.55);
   border: 1px solid rgba(193, 71, 110, 0.2);
   border-radius: 12px;
   padding: 22px 24px;
@@ -1116,7 +1116,7 @@ html, body {
   align-items: center;
   gap: 12px;
   padding: 11px 16px;
-  background: rgba(14, 14, 25, 0.5);
+  background: rgba(21, 30, 26, 0.55);
   border-radius: 8px;
   border: 1px solid var(--border-subtle);
   transition: border-color var(--duration-fast) var(--ease-smooth);
@@ -1196,6 +1196,65 @@ html, body {
 
 
 /* ============================================
+   Outlined Watermark Text
+   ============================================ */
+
+.slide-watermark {
+  position: absolute;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.82;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 1.5px rgba(130, 145, 137, 0.10);
+  color: transparent;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+  bottom: -6%;
+  right: -3%;
+  font-size: 10rem;
+  letter-spacing: 0.04em;
+  transition: opacity 0.6s ease;
+}
+
+.slide.active .slide-watermark {
+  animation: watermarkReveal 1.2s var(--ease-out) 0.3s both;
+}
+
+@keyframes watermarkReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Intro slide: larger, slightly brighter watermark */
+.intro-slide .slide-watermark {
+  font-size: 13rem;
+  -webkit-text-stroke: 2px rgba(130, 145, 137, 0.08);
+  bottom: -10%;
+  right: -4%;
+}
+
+/* Demo slide: centered outlined DEMO behind the filled one */
+.demo-slide .slide-watermark {
+  font-size: 14rem;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.04);
+  letter-spacing: 0.15em;
+}
+
+
+/* ============================================
    Responsive
    ============================================ */
 
@@ -1241,5 +1300,9 @@ html, body {
 
   .icon-count-number {
     font-size: 4rem;
+  }
+
+  .slide-watermark {
+    font-size: 5rem !important;
   }
 }
