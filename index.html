@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIMS Base Components | SKI</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="presentation">
+
+  <!-- ==========================================
+       SLIDE 1 - Intro
+       ========================================== -->
+  <section class="slide intro-slide" data-slide="0">
+    <img src="ski-logo.svg" alt="SKI" class="intro-logo" />
+    <h1 class="slide-title">DIMS Base Components<span class="cursor"></span></h1>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 2 - New Team Members
+       ========================================== -->
+  <section class="slide" data-slide="1">
+    <h2 class="slide-title">Holdet bag DIMS</h2>
+    <p class="slide-subtitle">git shortlog --team</p>
+    <div class="teams-container">
+      <!-- Udviklere -->
+      <div class="team-section step-item fade-up" data-step="0">
+        <div class="team-label"><span class="team-label-icon">&lt;/&gt;</span> Udviklere</div>
+        <div class="team-grid stagger-children">
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_01</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_02</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_03</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_04</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_05</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_06</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_07</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_08</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_09</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">dev_10</span></div>
+        </div>
+      </div>
+
+      <!-- Digitale konsulenter -->
+      <div class="team-section step-item fade-up" data-step="1">
+        <div class="team-label"><span class="team-label-icon">&#9881;</span> Digitale konsulenter</div>
+        <div class="team-grid stagger-children">
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">konsulent_01</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">konsulent_02</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">konsulent_03</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">konsulent_04</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">konsulent_05</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">konsulent_06</span></div>
+          <div class="person-card"><div class="person-silhouette"><svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div><span class="name">konsulent_07</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Designere - appears after konsulenter -->
+    <div class="team-section team-section--empty step-item fade-up" data-step="2">
+      <div class="team-label"><span class="team-label-icon">&#9998;</span> Designere</div>
+      <div class="team-empty">
+        <span class="code-comment">404 designer not found</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 3 - Bad Buttons
+       ========================================== -->
+  <section class="slide" data-slide="2">
+    <h2 class="slide-title">Buttons i det fri</h2>
+    <p class="slide-subtitle">git blame --nogen-har-rodet</p>
+    <div class="gallery-grid">
+      <div class="gallery-item bad step-item fade-up" data-step="0">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>button_screenshot_01.png</span>
+          </div>
+        </div>
+        <div class="caption">Hvorfor er den her knap 400px bred?</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="1">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>button_screenshot_02.png</span>
+          </div>
+        </div>
+        <div class="caption">Inline styles? Seri&oslash;st?</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="2">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>button_screenshot_03.png</span>
+          </div>
+        </div>
+        <div class="caption">3 forskellige hover states p&aring; samme side</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="3">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>button_screenshot_04.png</span>
+          </div>
+        </div>
+        <div class="caption">!important * 4</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 4 - Bad Icons
+       ========================================== -->
+  <section class="slide" data-slide="3">
+    <h2 class="slide-title">Ikoner i vildmarken</h2>
+    <p class="slide-subtitle">find . -name "*.svg" | wc -l</p>
+    <div class="icon-count-reveal">
+      <div class="icon-count-question step-item fade-up" data-step="0">
+        <span class="code-comment">Hvor mange ikoner havde vi f&oslash;r?</span>
+      </div>
+      <div class="icon-count-number step-item pop-in" data-step="1">100+</div>
+      <div class="gallery-grid" style="margin-top: 24px;">
+        <div class="gallery-item bad step-item fade-up" data-step="2" style="width: 100%; max-width: 600px;">
+          <div class="image-placeholder" style="height: 280px;">
+            <div class="placeholder-content">
+              <div class="icon">&#128248;</div>
+              <span>icons_overview.png</span>
+            </div>
+          </div>
+          <div class="caption">Hver udvikler havde sin egen ikon-samling</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 5 - Bad Dialogs
+       ========================================== -->
+  <section class="slide" data-slide="4">
+    <h2 class="slide-title">Dialog-katastrofer</h2>
+    <p class="slide-subtitle">console.error("UX har forladt chatten")</p>
+    <div class="gallery-grid">
+      <div class="gallery-item bad step-item fade-up" data-step="0">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>dialog_screenshot_01.png</span>
+          </div>
+        </div>
+        <div class="caption">Modal inde i en modal inde i en modal</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="1">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>dialog_screenshot_02.png</span>
+          </div>
+        </div>
+        <div class="caption">Luk-knap? Kender ikke konceptet</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="2">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>dialog_screenshot_03.png</span>
+          </div>
+        </div>
+        <div class="caption">Scrollbar inception</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="3">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>dialog_screenshot_04.png</span>
+          </div>
+        </div>
+        <div class="caption">z-index: 99999999 og stadig bag footeren</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 6 - Bad Alerts
+       ========================================== -->
+  <section class="slide" data-slide="5">
+    <h2 class="slide-title">Alert-ark&aelig;ologi</h2>
+    <p class="slide-subtitle">git log --all --grep="alert" | wc -l  # alt for mange</p>
+    <div class="gallery-grid">
+      <div class="gallery-item bad step-item fade-up" data-step="0">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>alert_screenshot_01.png</span>
+          </div>
+        </div>
+        <div class="caption">window.alert() i produktion. I 2026.</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="1">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>alert_screenshot_02.png</span>
+          </div>
+        </div>
+        <div class="caption">Error, warning og success ser alle ens ud</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="2">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>alert_screenshot_03.png</span>
+          </div>
+        </div>
+        <div class="caption">Alerten der d&aelig;kker submit-knappen</div>
+      </div>
+      <div class="gallery-item bad step-item fade-up" data-step="3">
+        <div class="image-placeholder">
+          <div class="placeholder-content">
+            <div class="icon">&#128248;</div>
+            <span>alert_screenshot_04.png</span>
+          </div>
+        </div>
+        <div class="caption">5 alerts stablet. V&aelig;lg din fighter</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 7 - DIMS Component Showcase
+       ========================================== -->
+  <section class="slide" data-slide="6">
+    <h2 class="slide-title" style="background: linear-gradient(135deg, var(--accent-light-green), var(--accent-sand)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Vi pr&aelig;senterer DIMS</h2>
+    <p class="slide-subtitle no-prompt">Komponentbiblioteket I fortjener</p>
+    <div class="showcase-container">
+      <div class="showcase-placeholder">
+        <div class="big-icon">&#128230;</div>
+        <p>Komponent-overblik screenshot inds&aelig;ttes her</p>
+        <p class="hint">Erstat med: dims-components-overview.png</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 8 - Buttons Before/After
+       ========================================== -->
+  <section class="slide" data-slide="7">
+    <h2 class="slide-title">Buttons: F&oslash;r &#8594; Efter</h2>
+    <p class="slide-subtitle">diff --old --new</p>
+    <div class="comparison-grid">
+      <div class="comparison-item step-item fade-up" data-step="0">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">btn_old_01.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">btn_new_01.png</div>
+        </div>
+      </div>
+      <div class="comparison-item step-item fade-up" data-step="1">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">btn_old_02.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">btn_new_02.png</div>
+        </div>
+      </div>
+      <div class="comparison-item step-item fade-up" data-step="2">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">btn_old_03.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">btn_new_03.png</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 9 - Icons Before/After
+       ========================================== -->
+  <section class="slide" data-slide="8">
+    <h2 class="slide-title">Ikoner: F&oslash;r &#8594; Efter</h2>
+    <p class="slide-subtitle">diff --old --new</p>
+    <div class="comparison-grid">
+      <div class="comparison-item step-item fade-up" data-step="0">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">icons_old_01.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">icons_new_01.png</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 10 - Dialogs Before/After
+       ========================================== -->
+  <section class="slide" data-slide="9">
+    <h2 class="slide-title">Dialogs: F&oslash;r &#8594; Efter</h2>
+    <p class="slide-subtitle">diff --old --new</p>
+    <div class="comparison-grid">
+      <div class="comparison-item step-item fade-up" data-step="0">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">dialog_old_01.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">dialog_new_01.png</div>
+        </div>
+      </div>
+      <div class="comparison-item step-item fade-up" data-step="1">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">dialog_old_02.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">dialog_new_02.png</div>
+        </div>
+      </div>
+      <div class="comparison-item step-item fade-up" data-step="2">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">dialog_old_03.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">dialog_new_03.png</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 11 - Alerts Before/After
+       ========================================== -->
+  <section class="slide" data-slide="10">
+    <h2 class="slide-title">Alerts: F&oslash;r &#8594; Efter</h2>
+    <p class="slide-subtitle">diff --old --new</p>
+    <div class="comparison-grid">
+      <div class="comparison-item step-item fade-up" data-step="0">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">alert_old_01.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">alert_new_01.png</div>
+        </div>
+      </div>
+      <div class="comparison-item step-item fade-up" data-step="1">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">alert_old_02.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">alert_new_02.png</div>
+        </div>
+      </div>
+      <div class="comparison-item step-item fade-up" data-step="2">
+        <div class="comparison-side before">
+          <div class="label">&#10060; F&oslash;r</div>
+          <div class="image-placeholder">alert_old_03.png</div>
+        </div>
+        <div class="comparison-side after">
+          <div class="label">&#9989; Efter</div>
+          <div class="image-placeholder">alert_new_03.png</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 12 - Storybook Demo
+       ========================================== -->
+  <section class="slide demo-slide" data-slide="11">
+    <div class="demo-terminal">
+      <span class="prompt">$</span> npm run storybook
+    </div>
+    <div class="demo-title">DEMO</div>
+    <a href="https://www.dr.dk" target="_blank" rel="noopener noreferrer" class="demo-link">
+&Aring;bn Storybook
+      <svg viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+    </a>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 13 - Developer Tooling
+       ========================================== -->
+  <section class="slide" data-slide="12">
+    <h2 class="slide-title">V&aelig;rkt&oslash;jer til den moderne<span style="color: var(--accent-sand);">*</span> udvikler</h2>
+    <p class="slide-subtitle no-prompt">* g&aelig;lder ogs&aring; dig, backend-udvikler</p>
+    <div class="tooling-content">
+      <!-- Step 1: VSCode Snippets -->
+      <div class="tool-card step-item slide-left" data-step="0">
+        <div class="tool-header">
+          <div class="tool-icon" style="background: rgba(99, 117, 107, 0.2);">&#9999;&#65039;</div>
+          <span class="tool-name">VSCode Snippets</span>
+        </div>
+        <p class="tool-description">
+          Skriv <code style="color: var(--accent-light-green); background: var(--bg-tertiary); padding: 2px 6px; border-radius: 4px;">dims-</code> og autocomplete klarer resten.
+          Buttons, dialogs, alerts &mdash; alle pr&aelig;-konfigureret med korrekte props.
+        </p>
+        <div class="code-block">
+          <span class="comment">// Type "dims-btn" and hit Tab:</span><br>
+          &lt;<span class="function">DimsButton</span><br>
+          &nbsp;&nbsp;<span class="keyword">variant</span>=<span class="string">"primary"</span><br>
+          &nbsp;&nbsp;<span class="keyword">size</span>=<span class="string">"md"</span><br>
+          &nbsp;&nbsp;<span class="keyword">onClick</span>={<span class="function">handleClick</span>}<br>
+          &gt;<br>
+          &nbsp;&nbsp;${<span class="string">label</span>}<br>
+          &lt;/<span class="function">DimsButton</span>&gt;
+        </div>
+      </div>
+
+      <!-- Step 2: VSCode Extension -->
+      <div class="tool-card step-item slide-left" data-step="1">
+        <div class="tool-header">
+          <div class="tool-icon" style="background: rgba(193, 71, 110, 0.15);">&#128268;</div>
+          <span class="tool-name">DIMS VSCode Extension</span>
+        </div>
+        <p class="tool-description">
+          Komponent-preview, prop-validering og auto-imports.
+          Fanger deprecated komponentbrug f&oslash;r din PR g&oslash;r det.
+        </p>
+        <div class="badge">
+          <span class="dot"></span>
+          ext install @ski/dims-vscode
+        </div>
+      </div>
+
+      <!-- Step 3: Live Demo Cue -->
+      <div class="demo-cue step-item fade-up" data-step="2">
+        <div class="icon">&#127916;</div>
+        <div><strong>LIVE DEMO</strong></div>
+        <div style="font-size: 0.85rem; margin-top: 4px;">Skift til VSCode og vis det i aktion</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SLIDE 14 - Claude Code
+       ========================================== -->
+  <section class="slide" data-slide="13">
+    <h2 class="slide-title">AI-assisteret refaktorering</h2>
+    <p class="slide-subtitle no-prompt">fordi livet er for kort til manuel find-and-replace</p>
+    <div class="claude-content">
+      <!-- Step 1: .claude/ directory -->
+      <div class="terminal-block step-item slide-left" data-step="0">
+        <div class="terminal-header">
+          <div class="terminal-dot red"></div>
+          <div class="terminal-dot yellow"></div>
+          <div class="terminal-dot green"></div>
+          <span class="terminal-title">~/project/.claude/</span>
+        </div>
+        <div class="terminal-body">
+          <span class="dir">&#128193; .claude/</span><br>
+          &nbsp;&nbsp;<span class="file">&#128196; CLAUDE.md</span> <span class="comment" style="color: var(--text-muted);">&nbsp;&nbsp;# Projektkontekst &amp; regler</span><br>
+          &nbsp;&nbsp;<span class="dir">&#128193; skills/</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">&#128196; component-redesign.md</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">&#128196; migrate-dialog.md</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">&#128196; fix-alerts.md</span><br>
+          &nbsp;&nbsp;<span class="dir">&#128193; settings/</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">&#128196; settings.json</span>
+        </div>
+      </div>
+
+      <!-- Step 2: /component-redesign skill -->
+      <div class="skill-card step-item slide-left" data-step="1">
+        <div class="skill-name">/component-redesign</div>
+        <p class="skill-description">
+          Et custom Claude Code skill der l&aelig;ser den gamle komponentkode, forst&aring;r DIMS API'et,
+          og spytter den refaktorerede version ud &mdash; med korrekte props, imports og styling-migrering.
+        </p>
+        <div class="code-block">
+          <span class="comment">// I din terminal, k&oslash;r bare:</span><br>
+          <span class="prompt" style="color: var(--accent-cherry);">$</span> <span class="highlight" style="color: var(--accent-light-green);">claude</span><br>
+          <span class="prompt" style="color: var(--accent-cherry);">&gt;</span> <span class="string">/component-redesign src/components/OldButton.tsx</span>
+        </div>
+      </div>
+
+      <!-- Step 3: Workflow -->
+      <div class="step-item fade-up" data-step="2">
+        <div class="workflow-steps">
+          <div class="workflow-step">
+            <div class="step-number">1</div>
+            <span class="step-text">Claude l&aelig;ser <code>CLAUDE.md</code> for projektkontekst &amp; DIMS-konventioner</span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">2</div>
+            <span class="step-text">Skill-skabelonen fort&aelig;ller Claude <em>hvordan</em> der refaktoreres: prop mapping, import paths, patterns</span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">3</div>
+            <span class="step-text">Claude omskriver komponenten, k&oslash;rer <code>npm run lint</code>, og viser dig diff'en</span>
+          </div>
+          <div class="workflow-step">
+            <div class="step-number">4</div>
+            <span class="step-text">Du reviewer, godkender og committer. F&aelig;rdigt p&aring; sekunder, ikke timer.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- UI Chrome -->
+<div class="progress-bar"></div>
+<div class="slide-counter"></div>
+<div class="step-indicator"></div>
+<div class="nav-hint">
+  <span><kbd>&#8592;</kbd> <kbd>&#8594;</kbd> naviger</span>
+  <span><kbd>Space</kbd> n&aelig;ste</span>
+</div>
+
+<!-- Noise texture overlay -->
+<svg class="noise-overlay" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <filter id="noise-filter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#noise-filter)"/>
+</svg>
+
+<script src="app.js"></script>
+</body>
+</html>
