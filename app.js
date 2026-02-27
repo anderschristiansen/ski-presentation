@@ -12,6 +12,15 @@ class Presentation {
     this.slideCounter = document.querySelector('.slide-counter');
     this.stepIndicator = document.querySelector('.step-indicator');
     this.isAnimating = false;
+    this.jumpMenuOpen = false;
+    this.jumpMenu = document.getElementById('jumpMenu');
+
+    // Key → slide index mapping for quick jump
+    this.jumpKeys = {
+      '1': 0, '2': 1, '3': 2, '4': 3, '5': 4,
+      '6': 5, '7': 6, '8': 7, '9': 8, '0': 9,
+      'q': 10, 'w': 11, 'e': 12, 'r': 13
+    };
 
     // Build step map: for each slide, count the step-items
     this.stepMap = {};
@@ -33,15 +42,47 @@ class Presentation {
   bindEvents() {
     document.addEventListener('keydown', (e) => this.handleKeydown(e));
 
-    // Click anywhere (except links) to advance
+    // Click only for jump menu interactions
     document.addEventListener('click', (e) => {
-      if (e.target.closest('a') || e.target.closest('button')) return;
-      this.advance();
+      // Jump menu item click
+      const jumpItem = e.target.closest('.jump-item');
+      if (jumpItem) {
+        const target = parseInt(jumpItem.dataset.target, 10);
+        this.jumpTo(target);
+        return;
+      }
+
+      // Click outside jump menu closes it
+      if (this.jumpMenuOpen) {
+        this.closeJumpMenu();
+        return;
+      }
     });
   }
 
   handleKeydown(e) {
+    // Jump menu is open — handle its keys
+    if (this.jumpMenuOpen) {
+      e.preventDefault();
+      if (e.key === 'Escape' || e.key === 'g') {
+        this.closeJumpMenu();
+        return;
+      }
+      const target = this.jumpKeys[e.key.toLowerCase()];
+      if (target !== undefined) {
+        this.jumpTo(target);
+      }
+      return;
+    }
+
     if (this.isAnimating) return;
+
+    // Open jump menu with G
+    if (e.key === 'g' || e.key === 'G') {
+      e.preventDefault();
+      this.openJumpMenu();
+      return;
+    }
 
     switch (e.key) {
       case 'ArrowRight':
@@ -110,6 +151,12 @@ class Presentation {
   showStep(slideIndex, stepNum) {
     const slide = this.slides[slideIndex];
     const steps = slide.querySelectorAll('.step-item');
+
+    // Single-step mode: hide previous step before showing next
+    if (slide.classList.contains('single-step') && stepNum > 0 && steps[stepNum - 1]) {
+      steps[stepNum - 1].classList.remove('visible');
+    }
+
     if (steps[stepNum]) {
       steps[stepNum].classList.add('visible');
     }
@@ -120,6 +167,11 @@ class Presentation {
     const steps = slide.querySelectorAll('.step-item');
     if (steps[stepNum]) {
       steps[stepNum].classList.remove('visible');
+    }
+
+    // Single-step mode: re-show the previous step when going back
+    if (slide.classList.contains('single-step') && stepNum > 0 && steps[stepNum - 1]) {
+      steps[stepNum - 1].classList.add('visible');
     }
   }
 
@@ -138,13 +190,21 @@ class Presentation {
   previousSlide() {
     if (this.currentSlide > 0) {
       const prevIndex = this.currentSlide - 1;
-      // Show all steps of previous slide
-      this.currentStep[prevIndex] = this.stepMap[prevIndex];
-      this.goToSlide(prevIndex, 'left');
-      // Make all steps visible on the previous slide
       const prevSlide = this.slides[prevIndex];
       const steps = prevSlide.querySelectorAll('.step-item');
-      steps.forEach(s => s.classList.add('visible'));
+
+      this.currentStep[prevIndex] = this.stepMap[prevIndex];
+      this.goToSlide(prevIndex, 'left');
+
+      if (prevSlide.classList.contains('single-step')) {
+        // Only show the last step
+        steps.forEach(s => s.classList.remove('visible'));
+        if (steps.length > 0) {
+          steps[steps.length - 1].classList.add('visible');
+        }
+      } else {
+        steps.forEach(s => s.classList.add('visible'));
+      }
     }
   }
 
@@ -181,6 +241,27 @@ class Presentation {
         this.isAnimating = false;
       }, 300);
     }, 50);
+  }
+
+  openJumpMenu() {
+    this.jumpMenuOpen = true;
+    this.jumpMenu.classList.add('open');
+    // Highlight current slide
+    this.jumpMenu.querySelectorAll('.jump-item').forEach(item => {
+      item.classList.toggle('active', parseInt(item.dataset.target, 10) === this.currentSlide);
+    });
+  }
+
+  closeJumpMenu() {
+    this.jumpMenuOpen = false;
+    this.jumpMenu.classList.remove('open');
+  }
+
+  jumpTo(index) {
+    this.closeJumpMenu();
+    if (index >= 0 && index < this.totalSlides) {
+      this.goToSlide(index);
+    }
   }
 
   updateUI() {
